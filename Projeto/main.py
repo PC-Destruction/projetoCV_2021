@@ -13,11 +13,18 @@ import os, sys
 import math
 import time
 
+from Room import Room
+from RoomA import RoomA
+from RoomB import RoomB
+from RoomC import RoomC
+from RoomD import RoomD
+from RoomE import RoomE
+
 class MyGame(ShowBase):
 
     def __init__(self):
         ShowBase.__init__(self)
-        self.inRoom = None
+        self.Room = None
         # Get the location of the 'py' file I'm running:
         self.mydir = os.path.abspath(sys.path[0])
         # convert to panda's specific notation
@@ -37,7 +44,7 @@ class MyGame(ShowBase):
         plight = PointLight('plight')
         plight.setColor((0.5, 0.5, 0.5, 0.01))
         plnp = self.render.attachNewNode(plight)
-        plnp.setPos(10, 20, 0)
+        plnp.setPos(19.28, 3.40, 0)
         self.render.setLight(plnp)
 
         #self.render.setShaderAuto()
@@ -51,75 +58,92 @@ class MyGame(ShowBase):
         self.camera.setH(89)
 
         def goBackToHall():
-            if self.inRoom:
-                self.inRoom = None
+            if self.Room:
+                self.Room.Stop()
+                self.Room = None
                 return self.camera.posInterval(1.0, Point3(self.camera.getX(), 3.40, 0))
             return None 
         def moveToRoomA():
             myInterval1 = self.camera.posInterval(1.0, Point3(-5.0, 3.40, 0))
             myInterval2 = self.camera.hprInterval(2.0, Vec3(180, 0, 0))
-            myInterval3 = self.camera.posInterval(4.0, Point3(-5.0, -40, 0))
+            myInterval3 = self.camera.posInterval(2.0, Point3(-5.0, -60, 0))
             mySequence = Sequence()
-            if self.inRoom:
+            if self.Room:
                 mySequence.append(goBackToHall())
             mySequence.append(myInterval1)
             mySequence.append(myInterval3)
             mySequence.start()
             mySequence2 = Sequence(myInterval2)
             mySequence2.start()
-            self.inRoom = "A"
+            self.Room = RoomA(self)
+            self.Room.Start()
         def moveToRoomB():
-            myInterval1 = self.camera.posInterval(1.0, Point3(-60.0, 3.40, 0))
+            myInterval1 = self.camera.posInterval(1.0, Point3(-55.0, 3.40, 0))
             myInterval2 = self.camera.hprInterval(2.0, Vec3(180, 0, 0))
-            myInterval3 = self.camera.posInterval(4.0, Point3(-60.0, -40, 0))
+            myInterval3 = self.camera.posInterval(2.0, Point3(-55.0, -60, 0))
             mySequence = Sequence()
-            if self.inRoom:
+            if self.Room:
                 mySequence.append(goBackToHall())
             mySequence.append(myInterval1)
             mySequence.append(myInterval3)
             mySequence.start()
             mySequence2 = Sequence(myInterval2)
             mySequence2.start()
-            self.inRoom = "B"
+            self.Room = RoomB(self)
+            self.Room.Start()
         def moveToRoomC():
-            myInterval1 = self.camera.posInterval(1.0, Point3(-115.0, 3.40, 0))
+            myInterval1 = self.camera.posInterval(1.0, Point3(-109.0, 3.40, 0))
             myInterval2 = self.camera.hprInterval(2.0, Vec3(180, 0, 0))
-            myInterval3 = self.camera.posInterval(4.0, Point3(-115.0, -40, 0))
+            myInterval3 = self.camera.posInterval(2.0, Point3(-109.0, -60, 0))
             mySequence = Sequence()
-            if self.inRoom:
+            if self.Room:
                 mySequence.append(goBackToHall())
             mySequence.append(myInterval1)
             mySequence.append(myInterval3)
             mySequence.start()
             mySequence2 = Sequence(myInterval2)
             mySequence2.start()
-            self.inRoom = "C"
+            self.Room = RoomC(self)
+            self.Room.Start()
         def moveToRoomD():
-            myInterval1 = self.camera.posInterval(1.0, Point3(-20.0, 3.40, 0))
+            myInterval1 = self.camera.posInterval(1.0, Point3(-30.0, 3.40, 0))
             myInterval2 = self.camera.hprInterval(2.0, Vec3(0, 0, 0))
-            myInterval3 = self.camera.posInterval(4.0, Point3(-20.0, 40, 0))
+            myInterval3 = self.camera.posInterval(2.0, Point3(-30.0, 53, 0))
             mySequence = Sequence()
-            if self.inRoom:
+            if self.Room:
                 mySequence.append(goBackToHall())
             mySequence.append(myInterval1)
             mySequence.append(myInterval3)
             mySequence.start()
             mySequence2 = Sequence(myInterval2)
             mySequence2.start()
-            self.inRoom = "D"
+            self.Room = RoomD(self)
+            self.Room.Start()
         def moveToRoomE():
-            myInterval1 = self.camera.posInterval(1.0, Point3(-75.0, 3.40, 0))
+            myInterval1 = self.camera.posInterval(1.0, Point3(-90.0, 3.40, 0))
             myInterval2 = self.camera.hprInterval(2.0, Vec3(0, 0, 0))
-            myInterval3 = self.camera.posInterval(4.0, Point3(-75.0, 40, 0))
+            myInterval3 = self.camera.posInterval(2.0, Point3(-90.0, 53, 0))
             mySequence = Sequence()
-            if self.inRoom:
+            if self.Room:
                 mySequence.append(goBackToHall())
             mySequence.append(myInterval1)
             mySequence.append(myInterval3)
             mySequence.start()
             mySequence2 = Sequence(myInterval2)
             mySequence2.start()
-            self.inRoom = "E"
+            self.Room = RoomE(self)
+            self.Room.Start()
+        def moveToRoomL():
+            if self.Room:
+                mySequence = Sequence()
+                #19.28, 3.40, 0
+                mySequence.append(goBackToHall())
+                myInterval1 = self.camera.posInterval(2.0, Point3(19.28, 3.40, 0))
+                mySequence.append(myInterval1)
+                mySequence.start()
+                myInterval2 = self.camera.hprInterval(1.0, Vec3(90.0, 0, 0))
+                mySequence2 = Sequence(myInterval2)
+                mySequence2.start()
         def printCamCoords(task):
             print(self.camera.getX(),self.camera.getY(),self.camera.getH())
             return task.again
@@ -128,6 +152,7 @@ class MyGame(ShowBase):
         self.accept('c', moveToRoomC)
         self.accept('d', moveToRoomD)
         self.accept('e', moveToRoomE)
+        self.accept('l', moveToRoomL)
         #self.taskMgr.add(printCamCoords, "printCoords")
 
 # create an object for the game and run it
