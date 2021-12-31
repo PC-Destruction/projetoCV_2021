@@ -34,28 +34,60 @@ class MyGame(ShowBase):
         self.mapModel = self.loader.loadModel(self.mydir + "/Models/Map/MapModel.bam")
         self.mapModel.setPos(0, 0, 0)
         self.mapModel.setScale(20.0,20.0,20.0)
+        mapTexture = self.loader.loadTexture("Models/Map/Texture.jpg")
+        self.mapModel.setTexture(mapTexture,1)
         self.mapModel.reparentTo(self.render)
 
         alight = AmbientLight('alight')
-        alight.setColor((0.01, 0.01, 0.01, 0.2))
+        alight.setColor((1,1,1,1))
         alnp = self.render.attachNewNode(alight)
         self.render.setLight(alnp)
 
-        plight = PointLight('plight')
-        plight.setColor((0.5, 0.5, 0.5, 0.01))
+        """plight = PointLight('plight')
+        plight.setColor((1, 1,1, 1))
+        #plight.setAttenuation(LVecBase3(1,0,0))
         plnp = self.render.attachNewNode(plight)
-        plnp.setPos(19.28, 3.40, 0)
-        self.render.setLight(plnp)
+        plnp.setPos(-5.0, 3.40, 0)
+        self.render.setLight(plnp)"""
+
+        
 
         #self.render.setShaderAuto()
 
         self.disableMouse()
         
-        #self.useDrive()
-        #self.useTrackball()
+        self.useDrive()
+        self.useTrackball()
         self.camLens.set_fov(100)
         self.camera.setPos(19.28, 3.40, 0)
         self.camera.setH(89)
+
+        self.box = self.loader.loadModel("models/box")
+        self.box.setPos(-40, 0, 18)
+        self.box.reparentTo(self.render)
+        
+        sptLight = Spotlight("spot")
+        sptLens = PerspectiveLens()
+        sptLight.setLens(sptLens)
+        sptLight.setColor(Vec4(1.0, 0.0, 0.0, 1.0))
+        sptLight.setShadowCaster(True)
+        sptNode = self.render.attachNewNode(sptLight)
+        #sptNode.setPos(25, 3.40, 0.5)
+        #sptNode.lookAt(self.camera)
+        sptNode.setPos(0, 0, 18)
+        sptNode.setHpr(90,-20,0)
+        self.render.setLight(sptNode)
+
+        sptLight2 = Spotlight("spot")
+        sptLight2.setLens(sptLens)
+        sptLight2.setColor(Vec4(0.0, 1.0, 0.0, 1.0))
+        sptLight2.setShadowCaster(True)
+        sptNode2 = self.render.attachNewNode(sptLight2)
+        #sptNode.setPos(25, 3.40, 0.5)
+        #sptNode.lookAt(self.camera)
+        sptNode2.setPos(-40, 0, 18)
+        sptNode2.setHpr(-90,0,0)
+        self.render.setLight(sptNode2)
 
         def goBackToHall():
             if self.Room:
