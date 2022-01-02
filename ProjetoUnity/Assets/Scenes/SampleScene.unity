@@ -467,6 +467,8 @@ MonoBehaviour:
   thatcherPrefab: {fileID: 5428459993201500648, guid: ca40f5944f7ce7a489b45a62e7b8340b, type: 3}
   thatcherPos: {fileID: 1697910381}
   thatcherRotatedPos: {fileID: 1925310339}
+  colorPerceptionPrefab: {fileID: 3872866563177887651, guid: 3c4401b54c08c3d4a8c3609e650e960d, type: 3}
+  roomLight: {fileID: 1596550040}
 --- !u!1 &1001955836
 GameObject:
   m_ObjectHideFlags: 0
