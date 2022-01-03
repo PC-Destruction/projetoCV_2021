@@ -470,6 +470,7 @@ MonoBehaviour:
   colorPerceptionPrefab: {fileID: 3872866563177887651, guid: 3c4401b54c08c3d4a8c3609e650e960d, type: 3}
   roomLight: {fileID: 1596550040}
   gestaltPrefab: {fileID: 7428977595798856395, guid: 9ad1f90f9a2574e48b7de306168c6411, type: 3}
+  motionBlindnessPrefab: {fileID: 6906832467758129466, guid: ca62e1c74853e6548961843e517f8f36, type: 3}
 --- !u!1 &1001955836
 GameObject:
   m_ObjectHideFlags: 0

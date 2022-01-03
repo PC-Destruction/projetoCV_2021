@@ -20,10 +20,9 @@ public class RoomA : MonoBehaviour
 
     public GameObject gestaltPrefab;
     private GameObject gestaltObj;
-    void Start()
-    {
-        
-    }
+
+    public GameObject motionBlindnessPrefab;
+    private GameObject motionBlindnessObj;
 
     private void ThatcherEffect()
     {
@@ -35,6 +34,7 @@ public class RoomA : MonoBehaviour
         {
             Destroy(colorPerceptionObj);
             Destroy(gestaltObj);
+            Destroy(motionBlindnessObj);
             thatcherObj = Instantiate(thatcherPrefab, thatcherPos.position,thatcherPos.rotation);
         }
         currentDisplay = "thatcher";
@@ -44,11 +44,12 @@ public class RoomA : MonoBehaviour
     {
         Destroy(thatcherObj);
         Destroy(gestaltObj);
+        Destroy(motionBlindnessObj);
         if (currentDisplay != "ColorPerception")
         {
             roomLight.intensity = 1f;
             currentDisplay = "ColorPerception";
-        } else
+        } else if (colorPerceptionObj == null)
         {
             colorPerceptionObj = Instantiate(colorPerceptionPrefab);
         }
@@ -59,11 +60,24 @@ public class RoomA : MonoBehaviour
         roomLight.intensity = 7.5f;
         Destroy(thatcherObj);
         Destroy(colorPerceptionObj);
-
+        Destroy(motionBlindnessObj);
         if (currentDisplay != "gestalt")
         {
             currentDisplay = "gestalt";
             gestaltObj = Instantiate(gestaltPrefab);
+        }
+    }
+
+    public void MotionBlindness()
+    {
+        roomLight.intensity = 7.5f;
+        Destroy(thatcherObj);
+        Destroy(colorPerceptionObj);
+        Destroy(gestaltObj);
+        if (currentDisplay != "MotionBlindness")
+        {
+            currentDisplay = "MotionBlindness";
+            motionBlindnessObj = Instantiate(motionBlindnessPrefab);
         }
     }
     void Update()
@@ -78,6 +92,10 @@ public class RoomA : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             Gestalt();
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            MotionBlindness();
         }
 
         if (objToLerp != null)
