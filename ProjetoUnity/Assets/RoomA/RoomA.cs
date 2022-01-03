@@ -17,6 +17,9 @@ public class RoomA : MonoBehaviour
     private GameObject objToLerp;
     private Quaternion lerpDestination;
     public Light roomLight;
+
+    public GameObject gestaltPrefab;
+    private GameObject gestaltObj;
     void Start()
     {
         
@@ -31,6 +34,7 @@ public class RoomA : MonoBehaviour
         } else
         {
             Destroy(colorPerceptionObj);
+            Destroy(gestaltObj);
             thatcherObj = Instantiate(thatcherPrefab, thatcherPos.position,thatcherPos.rotation);
         }
         currentDisplay = "thatcher";
@@ -39,6 +43,7 @@ public class RoomA : MonoBehaviour
     private void ColorPerception()
     {
         Destroy(thatcherObj);
+        Destroy(gestaltObj);
         if (currentDisplay != "ColorPerception")
         {
             roomLight.intensity = 1f;
@@ -46,6 +51,19 @@ public class RoomA : MonoBehaviour
         } else
         {
             colorPerceptionObj = Instantiate(colorPerceptionPrefab);
+        }
+    }
+
+    public void Gestalt()
+    {
+        roomLight.intensity = 7.5f;
+        Destroy(thatcherObj);
+        Destroy(colorPerceptionObj);
+
+        if (currentDisplay != "gestalt")
+        {
+            currentDisplay = "gestalt";
+            gestaltObj = Instantiate(gestaltPrefab);
         }
     }
     void Update()
@@ -56,6 +74,10 @@ public class RoomA : MonoBehaviour
         } else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             ColorPerception();
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            Gestalt();
         }
 
         if (objToLerp != null)

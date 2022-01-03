@@ -469,6 +469,7 @@ MonoBehaviour:
   thatcherRotatedPos: {fileID: 1925310339}
   colorPerceptionPrefab: {fileID: 3872866563177887651, guid: 3c4401b54c08c3d4a8c3609e650e960d, type: 3}
   roomLight: {fileID: 1596550040}
+  gestaltPrefab: {fileID: 7428977595798856395, guid: 9ad1f90f9a2574e48b7de306168c6411, type: 3}
 --- !u!1 &1001955836
 GameObject:
   m_ObjectHideFlags: 0
