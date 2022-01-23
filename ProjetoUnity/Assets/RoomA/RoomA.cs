@@ -36,6 +36,7 @@ public class RoomA : MonoBehaviour
             Destroy(gestaltObj);
             Destroy(motionBlindnessObj);
             thatcherObj = Instantiate(thatcherPrefab, thatcherPos.position,thatcherPos.rotation);
+            GameController.instance.SetToolTipText("Press 1 again and watch how the image upside down deceived you.");
         }
         currentDisplay = "thatcher";
     }
@@ -49,6 +50,7 @@ public class RoomA : MonoBehaviour
         {
             roomLight.intensity = 1f;
             currentDisplay = "ColorPerception";
+            GameController.instance.SetToolTipText("Leave the screen on the corner of your eye, press 2 again and then try to be aware of the red light and the blue light.");
         } else if (colorPerceptionObj == null)
         {
             colorPerceptionObj = Instantiate(colorPerceptionPrefab);
@@ -65,6 +67,7 @@ public class RoomA : MonoBehaviour
         {
             currentDisplay = "gestalt";
             gestaltObj = Instantiate(gestaltPrefab);
+            GameController.instance.SetToolTipText("Try to see both images at the same time.");
         }
     }
 
@@ -78,6 +81,7 @@ public class RoomA : MonoBehaviour
         {
             currentDisplay = "MotionBlindness";
             motionBlindnessObj = Instantiate(motionBlindnessPrefab);
+            GameController.instance.SetToolTipText("Look at the blinking green dot and don't let your attetion leave that dot for a while.");
         }
     }
     void Update()

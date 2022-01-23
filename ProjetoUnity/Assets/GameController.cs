@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
@@ -15,6 +16,10 @@ public class GameController : MonoBehaviour
     private Queue<Goal> goalQueue;
     private Goal goal;
 
+    public Text controlsText;
+    public Text toolTipText;
+
+    public static GameController instance;
     private class Goal
     {
         public Vector3 position;
@@ -27,11 +32,24 @@ public class GameController : MonoBehaviour
         }
     }
 
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            Destroy(this.gameObject);
+        } else
+        {
+            instance = this;
+        }
+    }
+
     void Start()
     {
         transform.position = hallPos.position;
         goalQueue = new();
         currentRoom = "H";
+        controlsText.text = "Room A - <b>A</b>\nRoom B - <b>B</b>\nRoom C - <b>C</b>\nRoom D - <b>D</b>\nRoom E - <b>E</b>";
+        toolTipText.gameObject.SetActive(false);
     }
 
     private void GoToHall()
@@ -46,6 +64,8 @@ public class GameController : MonoBehaviour
             if (currentRoom != "H")
             {
                 GoToHall();
+                controlsText.text = "Room A - <b>A</b>\nRoom B - <b>B</b>\nRoom C - <b>C</b>\nRoom D - <b>D</b>\nRoom E - <b>E</b>";
+                toolTipText.gameObject.SetActive(false);
             }
             Vector3 nextPosition = hallPos.position;
             Vector3 nextRotation = hallPos.eulerAngles;
@@ -55,30 +75,35 @@ public class GameController : MonoBehaviour
                     {
                         nextPosition = roomAPos.position;
                         nextRotation = roomAPos.eulerAngles;
+                        controlsText.text = "Room B - <b>B</b>\nRoom C - <b>C</b>\nRoom D - <b>D</b>\nRoom E - <b>E</b>\nHall - <b>H</b>\n\n<b>Room Controls:</b>\nThatcher Effect - <b>1</b>(Twice)\nColor Perception - <b>2</b>(Twice)\nGestalt - <b>3</b>\nMotion Blindness - <b>4</b>\n";
                         break;
                     }
                 case "B":
                     {
                         nextPosition = roomBPos.position;
                         nextRotation = roomBPos.eulerAngles;
+                        controlsText.text = "Room A - <b>A</b>\nRoom C - <b>C</b>\nRoom D - <b>D</b>\nRoom E - <b>E</b>\nHall - <b>H</b>";
                         break;
                     }
                 case "C":
                     {
                         nextPosition = roomCPos.position;
                         nextRotation = roomCPos.eulerAngles;
+                        controlsText.text = "Room A - <b>A</b>\nRoom B - <b>B</b>\nRoom D - <b>D</b>\nRoom E - <b>E</b>\nHall - <b>H</b>";
                         break;
                     }
                 case "D":
                     {
                         nextPosition = roomDPos.position;
                         nextRotation = roomDPos.eulerAngles;
+                        controlsText.text = "Room A - <b>A</b>\nRoom B - <b>B</b>\nRoom C - <b>C</b>\nRoom E - <b>E</b>\nHall - <b>H</b>";
                         break;
                     }
                 case "E":
                     {
                         nextPosition = roomEPos.position;
                         nextRotation = roomEPos.eulerAngles;
+                        controlsText.text = "Room A - <b>A</b>\nRoom B - <b>B</b>\nRoom C - <b>C</b>\nRoom D - <b>D</b>\nHall - <b>H</b>\n\n<b>Room Controls:</b>\nChange LOD - <b>1,2,3,4</b>\nDes/Activate wireframe - <b>W</b>";
                         break;
                     }
             }
@@ -131,5 +156,11 @@ public class GameController : MonoBehaviour
             goal = goalQueue.Dequeue();
             inMovement = true;
         }
+    }
+
+    public void SetToolTipText(string text)
+    {
+        toolTipText.gameObject.SetActive(true);
+        toolTipText.text = "<b>Tip:</b> " + text;
     }
 }
