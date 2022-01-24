@@ -6,6 +6,7 @@ public class RoomD : MonoBehaviour
 {
     public Material no_height_material;
     public Material height_material;
+    public Material height_normal_material;
     public GameObject cube;
 
     void Start()
@@ -24,7 +25,12 @@ public class RoomD : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             cube.GetComponent<MeshRenderer>().material = height_material;
-            GameController.instance.SetToolTipText("With the height map applied this wall looks much more realistic with all the bumps.");
+            GameController.instance.SetToolTipText("With the normal map applied this wall looks more realistic with all the bumps with no added cost with the geometry.");
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            cube.GetComponent<MeshRenderer>().material = height_normal_material;
+            GameController.instance.SetToolTipText("With the normal map and the height map applied this wall looks more realistic with all the bumps with no added cost with the geometry.");
         }
     }
 }
