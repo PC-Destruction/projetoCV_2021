@@ -94,12 +94,12 @@ public class GameController : MonoBehaviour
                     {
                         nextPosition = roomBPos.position;
                         nextRotation = roomBPos.eulerAngles;
-                        controlsText.text = "Room A - <b>A</b>\nRoom C - <b>C</b>\nRoom D - <b>D</b>\nRoom E - <b>E</b>\nHall - <b>H</b>";
+                        controlsText.text = "Room A - <b>A</b>\nRoom C - <b>C</b>\nRoom D - <b>D</b>\nRoom E - <b>E</b>\nHall - <b>H</b>\n\n<b>Room Controls:</b>\nOrthographic Projection - <b>1</b>\nPrespective Projection - <b>2</b>";
                         if (!(current_room_behaviour is null))
                         {
                             current_room_behaviour.enabled = false;
                         }
-                        current_room_behaviour = GetComponent<RoomA>();
+                        current_room_behaviour = GetComponent<RoomB>();
                         current_room_behaviour.enabled = true;
                         break;
                     }
