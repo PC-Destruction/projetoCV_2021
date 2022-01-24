@@ -8,14 +8,7 @@ public class trocarshading : MonoBehaviour
     public Material gouraud;
     public Material phong;
     public GameObject ball;
-  
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
     void Update()
     {
        
