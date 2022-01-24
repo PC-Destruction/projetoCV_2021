@@ -1475,7 +1475,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   no_height_material: {fileID: 2100000, guid: 557d26268a4668f409e629ec2e211470, type: 2}
-  height_material: {fileID: 2100000, guid: 8db81e8927ce10f4aa5e6c2ca8b266ad, type: 2}
+  height_material: {fileID: 2100000, guid: 77766eea2bae3f64c98a5b815085653d, type: 2}
+  height_normal_material: {fileID: 2100000, guid: 8db81e8927ce10f4aa5e6c2ca8b266ad, type: 2}
   cube: {fileID: 682756876}
 --- !u!114 &963194232
 MonoBehaviour:
