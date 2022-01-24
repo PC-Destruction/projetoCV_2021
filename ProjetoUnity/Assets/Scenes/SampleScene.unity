@@ -804,7 +804,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 563250747}
-  - component: {fileID: 563250748}
   m_Layer: 0
   m_Name: RoomD
   m_TagString: Untagged
@@ -829,21 +828,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &563250748
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 563250746}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 522118a605d17c140b45d50fd6a02205, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  no_height_material: {fileID: 2100000, guid: 557d26268a4668f409e629ec2e211470, type: 2}
-  height_material: {fileID: 2100000, guid: 8db81e8927ce10f4aa5e6c2ca8b266ad, type: 2}
-  cube: {fileID: 682756876}
 --- !u!1001 &570243809
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -927,8 +911,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LOD_VH
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2704568808543556325, guid: 81c5bdd192eba8c4597185b0c66a68f2, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 81c5bdd192eba8c4597185b0c66a68f2, type: 3}
+--- !u!1 &638177182 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2704568806512106774, guid: 81c5bdd192eba8c4597185b0c66a68f2, type: 3}
+  m_PrefabInstance: {fileID: 570243809}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &652786516
 GameObject:
   m_ObjectHideFlags: 0
@@ -1355,6 +1345,9 @@ GameObject:
   - component: {fileID: 963194226}
   - component: {fileID: 963194229}
   - component: {fileID: 963194230}
+  - component: {fileID: 963194231}
+  - component: {fileID: 963194232}
+  - component: {fileID: 963194233}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1456,7 +1449,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4087ff71684c1bd41b2233f66da914ce, type: 3}
   m_Name: 
@@ -1468,6 +1461,51 @@ MonoBehaviour:
   roomLight: {fileID: 1596550040}
   gestaltPrefab: {fileID: 7428977595798856395, guid: 9ad1f90f9a2574e48b7de306168c6411, type: 3}
   motionBlindnessPrefab: {fileID: 6906832467758129466, guid: ca62e1c74853e6548961843e517f8f36, type: 3}
+--- !u!114 &963194231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 522118a605d17c140b45d50fd6a02205, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  no_height_material: {fileID: 2100000, guid: 557d26268a4668f409e629ec2e211470, type: 2}
+  height_material: {fileID: 2100000, guid: 8db81e8927ce10f4aa5e6c2ca8b266ad, type: 2}
+  cube: {fileID: 682756876}
+--- !u!114 &963194232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e118b1050f4e1a24488369d740db29b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flat: {fileID: 2100000, guid: e323dc4864eb63d419950b631b70456e, type: 2}
+  gouraud: {fileID: 2100000, guid: 1e396cd1f7d34a445a2aee879f58b6a9, type: 2}
+  phong: {fileID: 2100000, guid: 5641b97f43489cc48b4cef09e8a75cae, type: 2}
+  ball: {fileID: 6895816689852509529}
+--- !u!114 &963194233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 016caacb9d71125448e571fb8b0e4a22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sphere: {fileID: 638177182}
+  wireframe_sphere: {fileID: 1827615897}
 --- !u!1 &969506294
 GameObject:
   m_ObjectHideFlags: 0
@@ -3288,7 +3326,6 @@ GameObject:
   - component: {fileID: 2675347269311326159}
   - component: {fileID: 1350621479672681734}
   - component: {fileID: 6895816689852509531}
-  - component: {fileID: 6895816689852509530}
   m_Layer: 0
   m_Name: Sphere.001
   m_TagString: Untagged
@@ -3296,21 +3333,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &6895816689852509530
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6895816689852509529}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e118b1050f4e1a24488369d740db29b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  flat: {fileID: 2100000, guid: e323dc4864eb63d419950b631b70456e, type: 2}
-  gouraud: {fileID: 2100000, guid: 1e396cd1f7d34a445a2aee879f58b6a9, type: 2}
-  phong: {fileID: 2100000, guid: 5641b97f43489cc48b4cef09e8a75cae, type: 2}
 --- !u!114 &6895816689852509531
 MonoBehaviour:
   m_ObjectHideFlags: 0

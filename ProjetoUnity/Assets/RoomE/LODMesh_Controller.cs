@@ -22,25 +22,21 @@ public class LODMesh_Controller : MonoBehaviour
         if (Input.GetKeyDown("1"))
         {
             GetComponent<MeshFilter>().mesh = VHD;
-            GameController.instance.SetToolTipText("This is the Highest Level of detail this sphere mesh has, try other levels to see how it changes");
         }
 
         if (Input.GetKeyDown("2"))
         {
             GetComponent<MeshFilter>().mesh = HD;
-            GameController.instance.SetToolTipText("This is the Second Highest Level of detail this sphere mesh has, try other levels to see how it changes");
         }
 
         if (Input.GetKeyDown("3"))
         {
             GetComponent<MeshFilter>().mesh = MD;
-            GameController.instance.SetToolTipText("This is the Second Lowest Level of detail this sphere mesh has, try other levels to see how it changes");
         }
 
         if (Input.GetKeyDown("4"))
         {
             GetComponent<MeshFilter>().mesh = LD;
-            GameController.instance.SetToolTipText("This is the Lowest Level of detail this sphere mesh has, try other levels to see how it changes");
         }
         
     }

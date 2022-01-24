@@ -15,6 +15,7 @@ public class GameController : MonoBehaviour
     private bool inMovement;
     private Queue<Goal> goalQueue;
     private Goal goal;
+    private MonoBehaviour current_room_behaviour;
 
     public Text controlsText;
     public Text toolTipText;
@@ -66,6 +67,11 @@ public class GameController : MonoBehaviour
                 GoToHall();
                 controlsText.text = "Room A - <b>A</b>\nRoom B - <b>B</b>\nRoom C - <b>C</b>\nRoom D - <b>D</b>\nRoom E - <b>E</b>";
                 toolTipText.gameObject.SetActive(false);
+                if (!(current_room_behaviour is null))
+                {
+                    current_room_behaviour.enabled = false;
+                }
+                current_room_behaviour = null;
             }
             Vector3 nextPosition = hallPos.position;
             Vector3 nextRotation = hallPos.eulerAngles;
@@ -76,6 +82,12 @@ public class GameController : MonoBehaviour
                         nextPosition = roomAPos.position;
                         nextRotation = roomAPos.eulerAngles;
                         controlsText.text = "Room B - <b>B</b>\nRoom C - <b>C</b>\nRoom D - <b>D</b>\nRoom E - <b>E</b>\nHall - <b>H</b>\n\n<b>Room Controls:</b>\nThatcher Effect - <b>1</b>(Twice)\nColor Perception - <b>2</b>(Twice)\nGestalt - <b>3</b>\nMotion Blindness - <b>4</b>\n";
+                        
+                        if (!(current_room_behaviour is null)){
+                            current_room_behaviour.enabled = false;
+                        }
+                        current_room_behaviour = GetComponent<RoomA>();
+                        current_room_behaviour.enabled = true;
                         break;
                     }
                 case "B":
@@ -83,6 +95,12 @@ public class GameController : MonoBehaviour
                         nextPosition = roomBPos.position;
                         nextRotation = roomBPos.eulerAngles;
                         controlsText.text = "Room A - <b>A</b>\nRoom C - <b>C</b>\nRoom D - <b>D</b>\nRoom E - <b>E</b>\nHall - <b>H</b>";
+                        if (!(current_room_behaviour is null))
+                        {
+                            current_room_behaviour.enabled = false;
+                        }
+                        current_room_behaviour = GetComponent<RoomA>();
+                        current_room_behaviour.enabled = true;
                         break;
                     }
                 case "C":
@@ -90,6 +108,12 @@ public class GameController : MonoBehaviour
                         nextPosition = roomCPos.position;
                         nextRotation = roomCPos.eulerAngles;
                         controlsText.text = "Room A - <b>A</b>\nRoom B - <b>B</b>\nRoom D - <b>D</b>\nRoom E - <b>E</b>\nHall - <b>H</b>\n\n<b>Room Controls:</b>\nFlat Illumination - <b>1</b>\nGouraud Illumination - <b>2</b>\nPhong Illumination - <b>3</b>";
+                        if (!(current_room_behaviour is null))
+                        {
+                            current_room_behaviour.enabled = false;
+                        }
+                        current_room_behaviour = GetComponent<trocarshading>();
+                        current_room_behaviour.enabled = true;
                         break;
                     }
                 case "D":
@@ -97,6 +121,12 @@ public class GameController : MonoBehaviour
                         nextPosition = roomDPos.position;
                         nextRotation = roomDPos.eulerAngles;
                         controlsText.text = "Room A - <b>A</b>\nRoom B - <b>B</b>\nRoom C - <b>C</b>\nRoom E - <b>E</b>\nHall - <b>H</b>\n\n<b>Room Controls:</b>\nWithout Height Map - <b>1</b>\nWith Height Map - <b>2</b>\n";
+                        if (!(current_room_behaviour is null))
+                        {
+                            current_room_behaviour.enabled = false;
+                        }
+                        current_room_behaviour = GetComponent<RoomD>();
+                        current_room_behaviour.enabled = true;
                         break;
                     }
                 case "E":
@@ -104,6 +134,12 @@ public class GameController : MonoBehaviour
                         nextPosition = roomEPos.position;
                         nextRotation = roomEPos.eulerAngles;
                         controlsText.text = "Room A - <b>A</b>\nRoom B - <b>B</b>\nRoom C - <b>C</b>\nRoom D - <b>D</b>\nHall - <b>H</b>\n\n<b>Room Controls:</b>\nChange LOD - <b>1,2,3,4</b>\nDes/Activate wireframe - <b>W</b>";
+                        if (!(current_room_behaviour is null))
+                        {
+                            current_room_behaviour.enabled = false;
+                        }
+                        current_room_behaviour = GetComponent<HideUnhide>();
+                        current_room_behaviour.enabled = true;
                         break;
                     }
             }
