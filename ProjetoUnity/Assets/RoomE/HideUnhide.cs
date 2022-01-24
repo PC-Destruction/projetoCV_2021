@@ -22,6 +22,7 @@ public class HideUnhide : MonoBehaviour
             {
                 sphere.GetComponent<Renderer>().enabled = false;
                 wireframe_sphere.GetComponent<Renderer>().enabled = true;
+                GameController.instance.SetToolTipText("Wireframe mode let's you see better the different levels of detail");
 
             }
             else
