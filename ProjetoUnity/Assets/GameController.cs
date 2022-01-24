@@ -96,7 +96,7 @@ public class GameController : MonoBehaviour
                     {
                         nextPosition = roomDPos.position;
                         nextRotation = roomDPos.eulerAngles;
-                        controlsText.text = "Room A - <b>A</b>\nRoom B - <b>B</b>\nRoom C - <b>C</b>\nRoom E - <b>E</b>\nHall - <b>H</b>";
+                        controlsText.text = "Room A - <b>A</b>\nRoom B - <b>B</b>\nRoom C - <b>C</b>\nRoom E - <b>E</b>\nHall - <b>H</b>\n\n<b>Room Controls:</b>\nWithout Height Map - <b>1</b>\nWith Height Map - <b>2</b>\n";
                         break;
                     }
                 case "E":
