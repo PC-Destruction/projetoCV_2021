@@ -89,7 +89,7 @@ public class GameController : MonoBehaviour
                     {
                         nextPosition = roomCPos.position;
                         nextRotation = roomCPos.eulerAngles;
-                        controlsText.text = "Room A - <b>A</b>\nRoom B - <b>B</b>\nRoom D - <b>D</b>\nRoom E - <b>E</b>\nHall - <b>H</b>";
+                        controlsText.text = "Room A - <b>A</b>\nRoom B - <b>B</b>\nRoom D - <b>D</b>\nRoom E - <b>E</b>\nHall - <b>H</b>\n\n<b>Room Controls:</b>\nFlat Illumination - <b>1</b>\nGouraud Illumination - <b>2</b>\nPhong Illumination - <b>3</b>";
                         break;
                     }
                 case "D":
