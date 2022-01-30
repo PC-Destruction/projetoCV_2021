@@ -6,6 +6,6 @@ public class rotação : MonoBehaviour {
     public float angulo;
     void Update()
     {
-        transform.Rotate(0, 0, angulo);
+        transform.Rotate(0, angulo, 0);
     }
 }
