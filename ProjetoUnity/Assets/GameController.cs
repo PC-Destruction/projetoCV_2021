@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
+    public float stepInterval;
+    public float lastStep;
     public Transform hallPos;
     public Transform roomAPos;
     public Transform roomBPos;
@@ -51,6 +53,7 @@ public class GameController : MonoBehaviour
         currentRoom = "H";
         controlsText.text = "Room A - <b>A</b>\nRoom B - <b>B</b>\nRoom C - <b>C</b>\nRoom D - <b>D</b>\nRoom E - <b>E</b>";
         toolTipText.gameObject.SetActive(false);
+        lastStep = stepInterval;
     }
 
     private void GoToHall()
@@ -174,7 +177,19 @@ public class GameController : MonoBehaviour
 
         if (inMovement)
         {
-            transform.position = Vector3.Lerp(transform.position, goal.position, Time.deltaTime * 2.0f);
+            lastStep -= Time.deltaTime;
+            if (lastStep < 0 && Vector3.Distance(transform.position, goal.position) > 2.0f)
+            {
+                transform.position = Vector3.Lerp(transform.position, new Vector3(goal.position.x, goal.position.y - 3f, goal.position.z), Time.deltaTime * 1.0f);
+                if (lastStep < -0.2f)
+                {
+                    lastStep = stepInterval;
+                }
+            }
+            else
+            {
+                transform.position = Vector3.Lerp(transform.position, goal.position, Time.deltaTime * 1.0f);
+            }
 
             Vector3 currentAngle = new Vector3(
              Mathf.LerpAngle(transform.eulerAngles.x, goal.rotation.x, Time.deltaTime * 2.0f),

@@ -1696,6 +1696,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 670f5087593829948b1340aababd7d7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stepInterval: 0.5
+  lastStep: 0
   hallPos: {fileID: 745749726}
   roomAPos: {fileID: 560485773}
   roomBPos: {fileID: 782332733}
