@@ -8,6 +8,7 @@ Shader "Custom/NewSurfaceShader"
         _Color ("Color", Color) = (1,1,1,1)
         [NoScaleOffset] _MainTex ("Texture", 2D) = "white" {}
         _intensityfactor ("Intensity Factor", float)=20
+        _LightPos ("LightPosition", Vector) = (-0.5, 5.5, -0.5, 1)
     }
  
     SubShader
@@ -28,6 +29,7 @@ Shader "Custom/NewSurfaceShader"
             fixed4 _Color;
             sampler2D _MainTex;
             float _intensityfactor;
+            float4 _LightPos;
  
             struct v2f {
                 float4 pos : SV_POSITION;
@@ -40,7 +42,8 @@ Shader "Custom/NewSurfaceShader"
                 v2f o;
                 o.pos = UnityObjectToClipPos(v.vertex);
                 o.uv = v.texcoord;
-                o.cameraRelativeWorldPos = mul(unity_ObjectToWorld, float4(v.vertex.xyz, 1)).xyz - _WorldSpaceCameraPos.xyz;
+            
+                o.cameraRelativeWorldPos = mul(unity_ObjectToWorld, float4(v.vertex.xyz, 1)).xyz - _LightPos;
                 return o;
             }
  
@@ -48,7 +51,7 @@ Shader "Custom/NewSurfaceShader"
             {
                 half3 normal = normalize(cross(ddy(i.cameraRelativeWorldPos), ddx(i.cameraRelativeWorldPos)));
  
-                half ndotl = saturate(dot(normal, _WorldSpaceLightPos0.xyz));
+                half ndotl = saturate(dot(normal, _LightPos));
                 half3 lighting = ndotl * _LightColor0.xyz + UNITY_LIGHTMODEL_AMBIENT.rgb /_intensityfactor;
  
                 fixed4 col = tex2D(_MainTex, i.uv) * _Color;
