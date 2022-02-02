@@ -17,7 +17,7 @@ public class RunTimeShaders : MonoBehaviour
     void Update () {
          
         MeshRenderer mr = GetComponent<MeshRenderer>();
-        Vector3 converted = new Vector3(Light.transform.position.x-transform.position.x , Light.transform.position.y- transform.position.y,Light.transform.position.z - transform.position.z);
+        Vector4 converted = new Vector4(Light.transform.position.x-transform.position.x , Light.transform.position.y- transform.position.y,Light.transform.position.z - transform.position.z,1);
         mr.sharedMaterial.SetVector("_LightPos", converted);
     }
 }
