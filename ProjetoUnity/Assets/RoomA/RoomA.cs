@@ -89,17 +89,21 @@ public class RoomA : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             ThatcherEffect();
+            AudioController.instance.PlaySound();
         } else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             ColorPerception();
+            AudioController.instance.PlaySound();
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             Gestalt();
+            AudioController.instance.PlaySound();
         }
         else if (Input.GetKeyDown(KeyCode.Alpha4))
         {
             MotionBlindness();
+            AudioController.instance.PlaySound();
         }
 
         if (objToLerp != null)

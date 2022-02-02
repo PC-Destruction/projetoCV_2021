@@ -31,27 +31,32 @@ public class HideUnhide : MonoBehaviour
                 wireframe_sphere.GetComponent<Renderer>().enabled = false;
 
             }
+            AudioController.instance.PlaySound();
         }
 
 
         if (Input.GetKeyDown("1"))
         {
             GameController.instance.SetToolTipText("This is the Highest Level of detail this sphere mesh has, try other levels to see how it changes");
+            AudioController.instance.PlaySound();
         }
 
         if (Input.GetKeyDown("2"))
         {
             GameController.instance.SetToolTipText("This is the Second Highest Level of detail this sphere mesh has, try other levels to see how it changes");
+            AudioController.instance.PlaySound();
         }
 
         if (Input.GetKeyDown("3"))
         {
             GameController.instance.SetToolTipText("This is the Second Lowest Level of detail this sphere mesh has, try other levels to see how it changes");
+            AudioController.instance.PlaySound();
         }
 
         if (Input.GetKeyDown("4"))
         {
             GameController.instance.SetToolTipText("This is the Lowest Level of detail this sphere mesh has, try other levels to see how it changes");
+            AudioController.instance.PlaySound();
         }
 
     }

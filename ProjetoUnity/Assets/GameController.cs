@@ -157,22 +157,28 @@ public class GameController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.A))
         {
             MoveToRoom("A");
+            AudioController.instance.PlaySound();
         } else if (Input.GetKeyDown(KeyCode.B))
         {
             MoveToRoom("B");
+            AudioController.instance.PlaySound();
         } else if (Input.GetKeyDown(KeyCode.C))
         {
             MoveToRoom("C");
+            AudioController.instance.PlaySound();
         } else if (Input.GetKeyDown(KeyCode.D))
         {
             MoveToRoom("D");
+            AudioController.instance.PlaySound();
         } else if (Input.GetKeyDown(KeyCode.E))
         {
             MoveToRoom("E");
+            AudioController.instance.PlaySound();
         }
         else if (Input.GetKeyDown(KeyCode.H))
         {
             MoveToRoom("H");
+            AudioController.instance.PlaySound();
         }
 
         if (inMovement)
