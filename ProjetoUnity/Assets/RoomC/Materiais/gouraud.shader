@@ -50,7 +50,7 @@ Shader "Custom/gouraud"
                 //Calculation of Diffuse Light.
                 float lightPor = max(0, dot(worldNor, lightDir));
                 //Attenuation coefficient, divided by 2 is a mysterious reason
-                float atten = 2 / length(_LightPos);
+                float atten = 20 / pow(length(_LightPos),2);
 
                 //The final color displayed on the screen is interpolated and passed to the fragment function to display the color.
                 o.color = _MainColor * lightPor * atten;
