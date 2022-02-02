@@ -20,6 +20,7 @@ public class trocarshading : MonoBehaviour
             ball2.GetComponent<MeshRenderer>().material = flat;
             ball3.GetComponent<MeshRenderer>().material = flat;
             GameController.instance.SetToolTipText("The lighting is evaluated only once for each polygon.");
+            AudioController.instance.PlaySound();
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
@@ -27,12 +28,14 @@ public class trocarshading : MonoBehaviour
             ball2.GetComponent<MeshRenderer>().material = gouraud;
             ball3.GetComponent<MeshRenderer>().material = gouraud;
             GameController.instance.SetToolTipText("The illumination model to each vertex is calculated the light intensity from the vertex normal.");
+            AudioController.instance.PlaySound();
         }
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             ball.GetComponent<MeshRenderer>().material = phong;
             ball2.GetComponent<MeshRenderer>().material = phong;
             ball3.GetComponent<MeshRenderer>().material = phong;
+            AudioController.instance.PlaySound();
             GameController.instance.SetToolTipText("The light intensities the normals are interpolated between the vertices.");
         }
 

@@ -15,10 +15,12 @@ public class RoomB : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             cam.orthographic = true;
+            AudioController.instance.PlaySound();
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             cam.orthographic = false;
+            AudioController.instance.PlaySound();
         }
     }
 
