@@ -593,10 +593,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9960bd156f667c845a9421fd4786c82b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  VHD: {fileID: -2432090755550338912, guid: 4ae6bdb68f9401e4f8c6a25fdbeccd91, type: 3}
-  HD: {fileID: -2432090755550338912, guid: 74456b036ad0c3f489ad2258dbbf95f3, type: 3}
-  MD: {fileID: -2432090755550338912, guid: 97e2f4efe96b4c340b5cf88703e76b80, type: 3}
-  LD: {fileID: -2432090755550338912, guid: af3d2d443b593744893473e228d0e745, type: 3}
+  VHD: {fileID: -2432090755550338912, guid: 038002c213847b64ea9532b3d652f66d, type: 3}
+  HD: {fileID: -2432090755550338912, guid: 4126cc1a2c329344196b982ef6f677fa, type: 3}
+  MD: {fileID: -2432090755550338912, guid: 6d7a3a28260ee9f43ab8c90d998fabbe, type: 3}
+  LD: {fileID: -2432090755550338912, guid: a0ba19d98d63e7744b973e9686c74327, type: 3}
 --- !u!1 &323244969
 GameObject:
   m_ObjectHideFlags: 0
@@ -1175,6 +1175,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6400281290468069383, guid: 4ae6bdb68f9401e4f8c6a25fdbeccd91, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -2432090755550338912, guid: 038002c213847b64ea9532b3d652f66d, type: 3}
     - target: {fileID: 919132149155446097, guid: 4ae6bdb68f9401e4f8c6a25fdbeccd91, type: 3}
       propertyPath: m_Name
       value: SatteliteEdit_VHLOD (1)
@@ -2326,11 +2330,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2704568808543556324, guid: 81c5bdd192eba8c4597185b0c66a68f2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.89
+      value: -3.23
       objectReference: {fileID: 0}
     - target: {fileID: 2704568808543556324, guid: 81c5bdd192eba8c4597185b0c66a68f2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.34
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2704568808543556324, guid: 81c5bdd192eba8c4597185b0c66a68f2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3502,44 +3506,48 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4ae6bdb68f9401e4f8c6a25fdbeccd91, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.99
+      value: 2.05
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4ae6bdb68f9401e4f8c6a25fdbeccd91, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.49
+      value: 0.67
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4ae6bdb68f9401e4f8c6a25fdbeccd91, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.04
+      value: 4.89
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4ae6bdb68f9401e4f8c6a25fdbeccd91, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.92049396
+      value: 0.864112
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4ae6bdb68f9401e4f8c6a25fdbeccd91, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.069216624
+      value: 0.04157431
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4ae6bdb68f9401e4f8c6a25fdbeccd91, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.33389983
+      value: 0.46055257
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4ae6bdb68f9401e4f8c6a25fdbeccd91, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.1908162
+      value: 0.19867899
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4ae6bdb68f9401e4f8c6a25fdbeccd91, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: -6.382
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4ae6bdb68f9401e4f8c6a25fdbeccd91, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 39.875
+      value: 54.838
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4ae6bdb68f9401e4f8c6a25fdbeccd91, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 23.423
+      value: 22.584
       objectReference: {fileID: 0}
+    - target: {fileID: -6400281290468069383, guid: 4ae6bdb68f9401e4f8c6a25fdbeccd91, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -2432090755550338912, guid: 038002c213847b64ea9532b3d652f66d, type: 3}
     - target: {fileID: 919132149155446097, guid: 4ae6bdb68f9401e4f8c6a25fdbeccd91, type: 3}
       propertyPath: m_Name
       value: SatteliteEdit_VHLOD
@@ -3666,10 +3674,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9960bd156f667c845a9421fd4786c82b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  VHD: {fileID: -2432090755550338912, guid: 4ae6bdb68f9401e4f8c6a25fdbeccd91, type: 3}
-  HD: {fileID: -2432090755550338912, guid: 74456b036ad0c3f489ad2258dbbf95f3, type: 3}
-  MD: {fileID: -2432090755550338912, guid: 97e2f4efe96b4c340b5cf88703e76b80, type: 3}
-  LD: {fileID: -2432090755550338912, guid: af3d2d443b593744893473e228d0e745, type: 3}
+  VHD: {fileID: -2432090755550338912, guid: 038002c213847b64ea9532b3d652f66d, type: 3}
+  HD: {fileID: -2432090755550338912, guid: 4126cc1a2c329344196b982ef6f677fa, type: 3}
+  MD: {fileID: -2432090755550338912, guid: 6d7a3a28260ee9f43ab8c90d998fabbe, type: 3}
+  LD: {fileID: -2432090755550338912, guid: a0ba19d98d63e7744b973e9686c74327, type: 3}
 --- !u!1 &1851611098
 GameObject:
   m_ObjectHideFlags: 0
