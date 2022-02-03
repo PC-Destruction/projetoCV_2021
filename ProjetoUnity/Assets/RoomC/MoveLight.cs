@@ -19,7 +19,7 @@ public class MoveLight : MonoBehaviour
     {
         if (Vector3.Distance(transform.position, positions[index].position) > 0.5)
         {
-            transform.position = Vector3.MoveTowards(transform.position, positions[index].position, 1 * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, positions[index].position, 5 * Time.deltaTime);
         }
         else {
             index = (index + 1) % positions.Length;
